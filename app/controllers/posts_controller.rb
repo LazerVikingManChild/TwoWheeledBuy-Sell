@@ -29,13 +29,14 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.find(params[:id])
-        if @post.update(post_params)
+        @post = Post.new(post_params)
+        @post.user_id = current_user.id
+        if @post.save
             redirect_to @post
-            flash[:notice] = "Post has been updated!"
+            flash[:notice] = "Post has been created!"
         else
             redirect_back(fallback_location[root_path])
-            flash[:alert] = "Post update has failed."
+            flash[:alert] = "Post creation has failed."
         end
     end
 
