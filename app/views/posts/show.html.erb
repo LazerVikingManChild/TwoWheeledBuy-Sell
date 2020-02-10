@@ -1,16 +1,17 @@
 <div class="card">
    
     <div class="card-body">
+        <h1><%= @post.title %></h1>
         <h3>$<%= @post.price %></h3>
-        <h1><%= @post.title %></h3>
-        <h3><%= @post.user.email %></h3>
-        <h4><%= @post.user.location %></h4>
+        <h3><%= @post.user.username %></h3>
+        <h3><%= @post.user.location %></h3>
         <p><%= @post.description %></p>
         <% if current_user == @post.user %>
             <%= button_to "Delete", @post, method: :delete %>
             <%= link_to "Edit", edit_post_path %>
         <% end %>
     </div>
-    <div><%= image_tag @post.image %></div>
 
+    <div><%= image_tag @post.image %></div>
+    
 </div>

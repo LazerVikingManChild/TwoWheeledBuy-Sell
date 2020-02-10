@@ -1,12 +1,29 @@
-<h1>User Profile</h1>
-<p>User email: <%= @user.username %></p>
-<p>Number of posts: <%= @user.posts.length %></p>
+<div class="card">
+    <h1>User Profile</h1>
+    <h3>Username: <%= @user.username %></h3>
+    <h3>Location: <%= @user.location %></h3>
+    <h3>Post counter: <%= @user.posts.length %></h3><br><br>
+</div>
 
-<% @user.posts.each do |post| %>
-    <%= link_to post.user.email, post.user %>
-    <%= post.title %>
-    <%= post.description %>
-    <% if current_user == post.user %>
-        <%= button_to "Delete", post, method: :delete %>
+<div class="card"> 
+    <% @user.posts.each do |post| %>
+        <div class="card-body">
+            <p>Posted by: <%= link_to post.user.username, post.user %></p>
+            <h3><% post.user.location %></h3>
+            <h3><%= post.title %></h3><br>
+            <p><%= post.description %></p>
+            
+            <!-- Trying to add a delete button and an edit button. Edit doesn't link properly.
+            <% if current_user == post.user %>
+                <%= button_to "Delete", post, method: :delete %>
+                <%= link_to "Edit", edit_post_path %>
+            <% end %> 
+            -->
+        </div>
+
+        <a href="<%= "/posts/#{post.id}" %>">
+        <div><%= image_tag post.image %></div>
+        </a>
+
     <% end %>
-<% end %>
+</div>
