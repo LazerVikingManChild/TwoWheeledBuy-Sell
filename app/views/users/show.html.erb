@@ -1,0 +1,12 @@
+<h1>User Profile</h1>
+<p>User email: <%= @user.email %></p>
+<p>Number of posts: <%= @user.posts.length %></p>
+
+<% @user.posts.each do |post| %>
+    <%= link_to post.user.email, post.user %>
+    <%= post.title %>
+    <%= post.description %>
+    <% if current_user == post.user %>
+        <%= button_to "Delete", post, method: :delete %>
+    <% end %>
+<% end %>

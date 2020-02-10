@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
     def create
         @post = Post.new(post_params)
-        # @post.user_id = current_user.id
+        @post.user_id = current_user.id
         if @post.save
             redirect_to @post
             flash[:notice] = "Post created successfully"
@@ -19,12 +19,32 @@ class PostsController < ApplicationController
         end
     end
 
+    def edit
+        @post = Post.find(params[:id])
+        if current_user != @post.user
+            sign_out current_user
+            redirect_to "/"
+            flash[:alert] = "Unauthorized request"
+        end
+    end
+
+    def create
+        @post = Post.find(params[:id])
+        if @post.update(post_params)
+            redirect_to @post
+            flash[:notice] = "Post has been updated!"
+        else
+            redirect_back(fallback_location[root_path])
+            flash[:alert] = "Post update has failed."
+        end
+    end
+
     def show
         @post = Post.find(params[:id])
     end
 
     private
     def post_params
-        params.require(:post).permit(:seller_id, :price, :title, :description, :image) 
+        params.require(:post).permit(:price, :title, :description, :image) 
     end
 end
