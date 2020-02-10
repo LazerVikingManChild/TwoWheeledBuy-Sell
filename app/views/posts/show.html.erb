@@ -1,4 +1,9 @@
-<%= @post.price %><br>
-<%= @post.title %><br>
-<%= @post.description %><br>
-<%= image_tag(@post.image, 'height:auto;width:300px;') %>
+<div class="card">
+   
+    <div class="card-body">
+        <p>$<%= @post.price %></p>
+        <p><%= @post.title %></p>
+        <p><%= @post.description %></p>
+    </div>
+    <div><%= image_tag @post.image %></div>
+</div>

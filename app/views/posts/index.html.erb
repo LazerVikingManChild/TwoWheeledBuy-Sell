@@ -1,6 +1,13 @@
 <h1>Posts Page</h1>
 
-<% @posts.each do |post| %>
-    <%= post.title %><br>
-    <%= image_tag(post.image, style: 'height:auto;width:150px;') %><br><br><br>
-<% end %>
+<div class="card" >
+    <% @posts.each do |post| %>
+        <a href="<%= "/posts/#{post.id}" %>">
+        <div class="card-body" >
+            <h3 class="card-title"><%= post.title %></h3>
+            <p class="card-subtitle">$<%= post.price %></p>
+            <p class="card-img-left", alt="An image of the item for sale"><%= image_tag post.image %>
+        </div>
+        </a>
+    <% end %>
+</div>
