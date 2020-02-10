@@ -6,7 +6,8 @@
         <div class="card-body" >
             <h3 class="card-title"><%= post.title %></h3>
             <p class="card-subtitle">$<%= post.price %></p>
-            <p class="card-img-left", alt="An image of the item for sale"><%= image_tag post.image %>
+            <p class="card-subtitle"><%= post.user.username if post.user %></p>
+            <p class="card-img-left" ><%= image_tag post.image %></p>
         </div>
         </a>
     <% end %>

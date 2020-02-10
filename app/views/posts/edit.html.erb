@@ -1,0 +1,6 @@
+<%= form_with model: @post do |f| %>
+    <div>price: <%= f.text_area :price, required: true %></div>
+    <div>title: <%= f.text_area :title, required: true %></div>
+    <div>description: <%= f.text_area :description, required: true %></div>
+    <%= f.submit %>
+<% end %>
