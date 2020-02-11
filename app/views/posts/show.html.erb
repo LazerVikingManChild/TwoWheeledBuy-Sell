@@ -3,7 +3,7 @@
     <div class="card-body">
         <h1><%= @post.title %></h1>
         <h3>$<%= @post.price %></h3>
-        <h3><%= @post.user.username %></h3>
+        <h3><%= link_to @post.user.username, "/users/#{@post.user.id}" %></h3>
         <h3><%= @post.user.location %></h3>
         <p><%= @post.description %></p>
         <% if current_user == @post.user %>

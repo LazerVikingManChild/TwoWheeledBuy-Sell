@@ -1,4 +1,70 @@
-.posts-image {
-    width: 150px;
+.card-img {
+    max-width: 150px;
 }
 
+.post_images {
+    width: 250px;
+}
+
+/*  .home-image {
+    z-index: 1;
+}
+
+.navbar-text {
+    background-color: black;
+    height: 100px;
+    z-index: 2;
+}
+
+.subtitle {
+    color: white;
+    font-size: 40px;
+    text-align: end;
+    margin-top: -250px;
+    margin-right: 20%;
+    margin-bottom: -5px;
+}
+
+.web-name {
+    color: white;
+    font-size: 90px;
+    text-align: end;
+    margin-right: 5%;
+}
+
+.tagline {
+    color: white;
+    font-size: 20px;
+    text-align: end;
+    margin-right: 10%;
+}
+
+.login-container {
+    background-color: white;
+    opacity: 65%;
+    height: 150px;
+    width: 250px;
+    border-radius: 15px;
+    border-color: black;
+    border-width: 2px;
+    position: relative;
+    top: 65px;
+    left: 65%;
+}
+
+.sign-in-button {
+    position: absolute;
+    display: inline-flexbox;
+    top: 50%;
+}
+
+.log-in-button {
+    position: absolute;
+    display: inline-flexbox;
+    top: 50%;
+}
+
+body {
+    background-color: rgb(63, 61,, 61);
+    text-decoration: none;
+} */

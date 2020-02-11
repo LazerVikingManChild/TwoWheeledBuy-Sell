@@ -5,9 +5,9 @@
         <a href="<%= "/posts/#{post.id}" %>">
         <div class="card-body" >
             <h3 class="card-title"><%= post.title %></h3>
-            <p class="card-subtitle">$<%= post.price %></p>
-            <p class="card-subtitle"><%= post.user.username if post.user %></p>
-            <p class="card-img-left" ><%= image_tag post.image %></p>
+            <div class="card-subtitle">$<%= post.price %></div>
+            <div class="card-subtitle"><%= post.user.username %></div>
+            <div><%= image_tag post.image, class: "card-img" %></div>
         </div>
         </a>
     <% end %>

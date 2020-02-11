@@ -1,6 +1,9 @@
 <h1>Users Page</h1>
 
 <% @users.each do |user| %>
-    <p>User email: <%= user.email %><br></p>
-    <p>Number of Posts:<%= user.posts.length %></p><br><br><br>
+    <div>Username: <%= user.username %></div>
+    <div>Location: <%= user.location %></div>
+    <div>Quote: <%= user.user_quote %></div>
+    <div>Description: <%= user.user_description %></div>
+    <div>Number of Posts:<%= user.posts.length %></div><br><br><br>
 <% end %>
