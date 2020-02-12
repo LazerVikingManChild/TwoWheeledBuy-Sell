@@ -1,14 +1,16 @@
-<h1>Posts Page</h1>
+<br><h1>Current Posts</h1><br>
 
-<div class="card" >
+<div>
     <% @posts.each do |post| %>
-        <a href="<%= "/posts/#{post.id}" %>">
-        <div class="card-body" >
-            <h3 class="card-title"><%= post.title %></h3>
-            <div class="card-subtitle">$<%= post.price %></div>
-            <div class="card-subtitle"><%= post.user.username %></div>
-            <div><%= image_tag post.image, class: "card-img" %></div>
-        </div>
+        <div class="inline-flex w-50"> 
+            <a href="<%= "/posts/#{post.id}" %>">
+            <div class=>
+                <h3 class="font-serif"><%= post.title %></h3>
+                <div class="font-serif">$<%= post.price %></div>
+                <div class="font-serif"><%= post.user.username %></div>
+                <div class="h-20 w-20 float-left"><%= image_tag post.image, class: "card-img" %></div>
+            </div>
         </a>
-    <% end %>
+        </div>
+    <% end %>   
 </div>

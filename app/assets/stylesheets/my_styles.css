@@ -1,10 +1,17 @@
-.card-img {
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+
+/* .card-img {
     max-width: 150px;
 }
 
 .post_images {
     width: 250px;
-}
+} */
 
 /*  .home-image {
     z-index: 1;

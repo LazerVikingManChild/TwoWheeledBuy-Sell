@@ -1,17 +1,17 @@
 <div class="card">
-    <h1>User Profile</h1>
-    <h3>Username: <%= @user.username %></h3>
+    <br><h1><%= "Meet #{@user.username}"%></h1><br>
+    <h3>Username: <%= @user.username  %></h3>
     <h3>Location: <%= @user.location %></h3>
     <h3>Quote: <%= @user.user_quote %></h3>
     <h4>A little bit about <%= @user.username%>: <%= @user.user_description %></h4>
-    <h3>Post counter: <%= @user.posts.length %></h3><br><br>
+    <h3>Post counter: <%= @user.posts.length %></h3><br>
 </div>
 
 <h1><%= @user.username %>'s Posts:</h1>
 <div class="card"> 
     <% @user.posts.each do |post| %>
         <div class="card-body">
-            <p>Posted by: <%= link_to post.user.username, post.user %></p>
+            <p>Posted by: <%= post.user.username %></p>
             <h3><% post.user.location %></h3>
             <h3><%= post.title %></h3><br>
             <p><%= post.description %></p>
