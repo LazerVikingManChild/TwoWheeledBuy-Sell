@@ -1,4 +1,4 @@
-<% if @over_ten %>
+<br><% if @over_ten %>
     <%= link_to 'Show Previous', '?m=all' %>
 <% end %>
 
@@ -19,7 +19,7 @@
             </div>
         <% end %>
     <% end %>
-</div>
+</div><br>
 
 <%= form_for [@chat, @message], html: {class: 'ui reply form'} do |f| %>
     <div class='field'>
