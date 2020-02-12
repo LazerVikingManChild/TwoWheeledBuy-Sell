@@ -1,16 +1,16 @@
 <br><h1>Current Posts</h1><br>
 
-<div>
+<div class="container">
     <% @posts.each do |post| %>
-        <div class="inline-flex w-50"> 
-            <a href="<%= "/posts/#{post.id}" %>">
-            <div class=>
-                <h3 class="font-serif"><%= post.title %></h3>
-                <div class="font-serif">$<%= post.price %></div>
-                <div class="font-serif"><%= post.user.username %></div>
-                <div class="h-20 w-20 float-left"><%= image_tag post.image, class: "card-img" %></div>
+        <div class="card">
+            <div class="card-img-top"><%= image_tag post.image, class: "card-img" %></div>
+                <div class="card-body">
+                    <h3 class="card-title"><%= post.title %></h3>
+                    <div class="card-text">$<%= post.price %></div>
+                    <div class="card-text"><%= post.user.username %></div>
+                    <div class="card-img"><%= image_tag post.user.avatar, class: "avatar" %></div>
+                </div>
             </div>
-        </a>
         </div>
     <% end %>   
 </div>
