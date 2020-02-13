@@ -19,42 +19,36 @@
     <body class="background">
 
         <div class="navbar navbar-text">
-            <%
-=begin%>
- <div class="logo">Two-Wheeled Buy & Sell</div> 
-<%
-=end%>
+
             <div class="container-fluid" style="justify-content: flex-end">
                 <% if user_signed_in? %>
                     <ul class="nav-ul">
-                        <li class="nav-item active">
-                            <a class="nav-link"><%= link_to "Posts", "/posts", class: "navbar-link" %></a>
+                        <li class="nav-item">
+                            <a><%= link_to "Posts", "/posts", class: "navbar-link" %></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link"><%= link_to "New Post", "/posts/new", class: "navbar-link" %></a>
+                        <li class="nav-item">
+                            <a><%= link_to "New Post", "/posts/new", class: "navbar-link" %></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link"><%= link_to 'Inbox', "/chats", class: "navbar-link" %></a>
+                        <li class="nav-item">
+                            <a><%= link_to 'Inbox', "/chats", class: "navbar-link" %></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link"><%= link_to 'Edit Profile', edit_user_registration_path, class: "navbar-link" %></a>
+                        <li class="nav-item">
+                            <a><%= link_to 'Edit Profile', edit_user_registration_path, class: "navbar-link" %></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link"><%= link_to "Logout", destroy_user_session_path, class: "navbar-link", method: :delete %></a>
+                        <li class="nav-item">
+                            <a><%= link_to "Logout", destroy_user_session_path, class: "navbar-link", method: :delete %></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link"><%= image_tag current_user.avatar, class: "navbar-avatar" %></a>
+                        <li class="nav-item">
+                            <a><%= link_to(image_tag(current_user.avatar, class: "navbar-avatar"), "/users/#{current_user.id}") %></a>
                         </li>
                     </ul>
 
-                    <%
-=begin%>
- <div class="user-link">Logged in as: <%= link_to current_user.username, "/users/#{current_user.id}", class: "user-link" %></div> 
-<%
-=end%>
-
                 <% else %>
-
+                    <ul>
+                        <li>
+                            <a class="nav-link"><%= link_to "Two-Wheeled Buy & Sell", "/", class: "navbar-logo" %></a>
+                        </li>
+                    </ul>
                 <% end %>
             </div>
         </div>
@@ -65,7 +59,3 @@
     </body>
 </html>
 
-
-          <!--
-          <%= image_tag('moto-image.jpg', class: 'home-image', style: "height: auto; width: 100%") %>
-          -->
