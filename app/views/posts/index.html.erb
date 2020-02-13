@@ -4,11 +4,12 @@
     <% @posts.each do |post| %>
         <div class="card">
             <div class="card-img-top"><%= link_to(image_tag(post.image, class: "card-img"), post) %></div>
-                <div class="card-body">
-                    <h3><%= link_to post.title, "/posts/#{post.id}", class: "card-title" %></h3>
-                    <p class="card-text">$<%= post.price %></p>
-                    <p><%= link_to post.user.username, post.user, class: "card-username" %></p>
+            <div class="card-body">
+                <h3><%= link_to post.title, "/posts/#{post.id}", class: "card-title" %></h3>
+                <p class="card-text">$<%= post.price %></p>
+                <div class="user-info">
                     <div class="card-img"><%= image_tag post.user.avatar, class: "avatar" %></div>
+                    <p><%= link_to post.user.username, post.user, class: "card-username" %></p>
                 </div>
             </div>
         </div>
