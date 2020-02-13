@@ -1,16 +1,17 @@
-<div>
+<div class="container">
     <div>
-        <h1><%= @post.title %></h1>
-        <h3>$<%= @post.price %></h3>
-        <h3><%= link_to @post.user.username, "/users/#{@post.user.id}" %></h3>
-        <h3><%= @post.user.location %></h3>
-        <p><%= @post.description %></p>
+        <h1 class="posts-title"><%= @post.title %></h1>
+        <h3 class="posts-text">Price posted: $<%= @post.price %></h3>
+        <h3 class="posts-text">Seller: <%= link_to @post.user.username, "/users/#{@post.user.id}", class: "post-texts" %></h3>
+        <h3 class="posts-text">Item location: <%= @post.user.location %></h3>
+        <h3 class="posts-text">Send <%= link_to "#{@post.user.username}", "/chats/#{@post.user.id}" %> a message</h3>
+        <p class="text"><strong>Item description: </strong><%= @post.description %></p>
         <% if current_user == @post.user %>
             <%= button_to "Delete", @post, method: :delete %>
             <%= link_to "Edit", edit_post_path %>
         <% end %>
     </div>
 
-    <div><%= image_tag @post.image %></div>
+    <div><%= image_tag @post.image, class: "post-img" %></div>
     
 </div>

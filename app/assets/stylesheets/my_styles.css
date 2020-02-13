@@ -1,9 +1,9 @@
-@import "tailwindcss/base";
 
-@import "tailwindcss/components";
+.background {
+    background-image: linear-gradient(to bottom, rgb(225, 241, 233), rgb(56, 246, 183));
+}
 
-@import "tailwindcss/utilities";
-
+/* Avatar styling */
 
 .avatar {
     border-radius: 100%;
@@ -11,21 +11,92 @@
     width: auto;
 }
 
-.card-img {
-    height: auto;  
-    width: 200px;
-}
-
-.container {
-    display: flexbox;
-}
+/* Navbar styling  */
 
 .navbar {
-    display: flex;
     width: 100%;
-    align-items: flex-end;
+    height: auto;
+    background-color: #3b3b3b ;
+}
+
+.logo {
+    color: rgb(199, 230, 215);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-ul {
+    display: flex;
 }
 
 .nav-item {
-    text-decoration: none;
+    padding: 0px 8px;
+    list-style-type: none;
+    font-size: 1em;
+}
+
+.navbar-link {
+    color: rgb(56, 246, 183);
+    font-family: serif; 
+    font-size: 1em;
+}
+
+/* .user-link {
+    list-style-type: none;
+    color: rgb(56, 246, 183);
+    font-family: serif;
+    justify-content: flex-end;
+    padding-right: 25px;
+} */
+
+/* Post cards styling */
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.posts-title {
+    text-align: center;
+    color:  black;
+    margin-top: 5%;
+}
+
+.card-img {
+    height: auto;  
+    width: 250px;
+}
+
+.container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    width: 270px;
+    height: 450px;
+    border-radius: 3px;
+}
+
+.card-title {
+    font-family: 'Times New Roman', Times, serif;
+    color:  #3b3b3b;
+    text-align: center;
+}
+.posts-text {
+    font-family: 'Times New Roman', Times, serif;
+    color:  #3b3b3b; 
+}
+
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    color:  #3b3b3b; 
+    font-size: 20px;
+}
+
+.post-img {
+    width: 500px;
+    margin: 40px 20px;
 }

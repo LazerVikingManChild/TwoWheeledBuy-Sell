@@ -1,13 +1,13 @@
-<br><h1>Current Posts</h1><br>
+<h1 class="posts-title">Recent Posts</h1><br>
 
 <div class="container">
     <% @posts.each do |post| %>
         <div class="card">
-            <div class="card-img-top"><%= image_tag post.image, class: "card-img" %></div>
+            <div class="card-img-top"><%= link_to(image_tag(post.image, class: "card-img"), post) %></div>
                 <div class="card-body">
-                    <h3 class="card-title"><%= post.title %></h3>
-                    <div class="card-text">$<%= post.price %></div>
-                    <div class="card-text"><%= post.user.username %></div>
+                    <h3><%= link_to post.title, "/posts/#{post.id}", class: "card-title" %></h3>
+                    <p class="card-text">$<%= post.price %></p>
+                    <p><%= link_to post.user.username, post.user, class: "card-username" %></p>
                     <div class="card-img"><%= image_tag post.user.avatar, class: "avatar" %></div>
                 </div>
             </div>
