@@ -22,6 +22,7 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
   database: two-wheeled-buy-sell_production
   username: two-wheeled-buy-sell
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
