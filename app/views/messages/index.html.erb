@@ -1,32 +1,36 @@
-<br><% if @over_ten %>
-    <%= link_to 'Show Previous', '?m=all' %>
-<% end %>
+<div class="mailbox-container"> 
+    <br><% if @over_ten %>
+        <%= link_to 'Show Previous', '?m=all' %>
+    <% end %><br>
 
-<div class=”ui segment”>
-    <% @messages.each do |message| %>
-        <% if message.body %>
-            <% user = User.find(message.user_id) %>
-            <div class=”item”>
-                <div class=”content”>
-                    <div class=”header”><strong><%= user.username %></strong><%= message.message_time %></div>
-                    <div class=”list”>
-                        <div class=”item”>
-                            <i class=”right triangle icon”></i>
-                            <%= message.body %>
+    <div class=”ui message-container segment”>
+        <% @messages.each do |message| %>
+            <% if message.body %>
+                <% user = User.find(message.user_id) %>
+                <div class=”item”>
+                    <div class=”message-content”>
+                        <div class=”header”><strong><%= user.username %></strong> sent at <%= message.message_time %></div>
+                        <div class=”list”>
+                            <div class=”mailbox-item”>
+                                <i class=”right triangle icon”></i>
+                                <%= message.body %>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <% end %>
         <% end %>
-    <% end %>
-</div><br>
+    </div><br>
 
-<%= form_for [@chat, @message], html: {class: 'ui reply form'} do |f| %>
-    <div class='field'>
-        <%= f.text_area :body, class: 'form-control' %>
-    </div>
-    <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %>
-    <div>
-        <%= f.submit 'Add Reply', class: 'ui blue labeled submit icon button' %>
-    </div>
-<% end %>
+    <%= form_for [@chat, @message], html: {class: 'ui reply form'} do |f| %>
+        <div class='field'>
+            <%= f.text_area :body, class: 'form-control' %>
+        </div>
+        <%= f.text_field :user_id, value: current_user.id, type: 'hidden' %><br>
+        <div class="mailbox-reply-button">
+            <%= f.submit 'Send Message', class: 'ui blue labeled submit icon button' %>
+        </div>
+    <% end %>
+</div>     
+
+

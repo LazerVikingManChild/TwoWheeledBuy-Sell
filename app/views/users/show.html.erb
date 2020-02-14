@@ -1,32 +1,49 @@
-<div>
-    <br><h1><%= "Meet #{@user.username}"%></h1><br>
-    <%= image_tag @user.avatar, class: "avatar" %>
-    <h3>Username: <%= @user.username  %></h3>
-    <h3>Location: <%= @user.location %></h3>
-    <h3>Quote: <%= @user.user_quote %></h3>
-    <h4>A little bit about <%= @user.username%>: <%= @user.user_description %></h4>
-    <h3>Post counter: <%= @user.posts.length %></h3><br>
-</div>
-
-<h1><%= @user.username %>'s Posts:</h1>
-<div> 
-    <% @user.posts.each do |post| %>
-        <div>
-            <p>Posted by: <%= post.user.username %></p>
-            <h3><% post.user.location %></h3>
-            <h3><%= post.title %></h3><br>
-            <p><%= post.description %></p>
-            
-            <% if current_user == post.user %>
-                <%= button_to "Delete", post, method: :delete %>
-                <%= link_to "Edit", edit_post_path %>
-            <% end %> 
-            
+<div class="users-show-container">
+    <div>
+        <h1 class="user-show-title"><%= "Meet #{@user.username}"%></h1><br>
+        <div class="user-show-info">
+            <div class="user-show-avatar">
+                <%= image_tag @user.avatar, class: "avatar-userpage" %>
+            </div>
+            <div class="user-show-info-block">
+                <h3 class="user-show-text">Username: <%= @user.username  %></h3>
+                <h3 class="user-show-text">Location: <%= @user.location %></h3>
+                <h3 class="user-show-text">Quote: <%= @user.user_quote %></h3>
+                <h4 class="user-show-text">A little bit about <%= @user.username%>: <%= @user.user_description %></h4>
+                <h3 class="user-show-text">Post counter: <%= @user.posts.length %></h3><br>
+            </div>
         </div>
+    </div>
 
-        <a href="<%= "/posts/#{post.id}" %>">
-        <div><%= image_tag post.image, class: "post_images" %></div>
-        </a>
-
-    <% end %>
+    <h1 class="user-show-title"><%= @user.username %>'s Posts:</h1>
+    
+    <div class="user-show-posts-container"> 
+        <% @user.posts.each do |post| %>
+            <div class="user-showcard">
+                <div>
+                    <a href="<%= "/posts/#{post.id}" %>">
+                        <div>
+                            <%= link_to(image_tag(post.image, class: "user-show-post-images"), post) %>
+                        </div>
+                    </a>
+                </div>
+                <div class="user-show-post-text-box">
+                    <h3 class="user-show-post-title"><strong><%= link_to post.title, post %></strong></h3><br>
+                    <h3 class="user-show-post-text-loc"><strong><%= post.user.location %></strong></h3>
+                    <p class="user-show-post-text"><%= post.description %></p>
+                    <div class="user-show-post-bottom">   
+                        <div class="user-show-post-button-box">
+                            <% if current_user == post.user %>
+                                <%= button_to "Delete", post, method: :delete %>
+                                <%= link_to "Edit", edit_post_path %>
+                            <% end %> 
+                        </div>
+                        <div class="user-show-post-price-box"> 
+                            <h3 class="user-show-post-price">$<%= post.price %></h3>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        <% end %>
+    </div>
 </div>
