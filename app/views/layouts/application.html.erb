@@ -40,7 +40,9 @@
                             <a><%= link_to "Logout", destroy_user_session_path, class: "navbar-link", method: :delete %></a>
                         </li>
                         <li class="nav-item">
-                            <a><%= link_to(image_tag(current_user.avatar, class: "navbar-avatar"), "/users/#{current_user.id}") %></a>
+                            <% if current_user.avatar.attached? %>
+                                <a><%= link_to(image_tag(current_user.avatar, class: "navbar-avatar"), "/users/#{current_user.id}") %></a>
+                            <% end %>
                         </li>
                     </ul>
 
