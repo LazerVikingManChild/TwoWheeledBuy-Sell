@@ -2,7 +2,7 @@
 <div class="edit-form">
   <div class="edit-user-info">
     <h2>Log in</h2>
-  </div><br>
+  </div><br><br>
   <div class="edit-user-info">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
@@ -16,15 +16,15 @@
       </div><br>  
 
       <% if devise_mapping.rememberable? %>
-        <div class="field">
+        <div id="actions">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me %>
         </div>
       <% end %>
 
-      <div class="actions">
+      <div id="actions">
         <%= f.submit "Log in" %>
-      </div><br>
+      </div><br><br>
     <% end %>
     
   </div>

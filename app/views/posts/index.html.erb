@@ -1,7 +1,7 @@
 <h1 class="posts-title">Recent Posts</h1><br>
 
 <div class="container">
-    <% @posts.each do |post| %>
+    <% @posts.reverse.each do |post| %>
         <div class="card">
             <div class="card-img-top"><%= link_to(image_tag(post.image, class: "card-img"), post) %></div>
             <div class="card-body">

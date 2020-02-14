@@ -1,6 +1,19 @@
-<%= form_with model: @post do |f| %>
-    <div>price: <%= f.text_area :price, required: true %></div>
-    <div>title: <%= f.text_area :title, required: true %></div>
-    <div>description: <%= f.text_area :description, required: true %></div>
-    <%= f.submit %>
-<% end %>
+<div class="edit-form">
+    <h1>Edit Post</h1><br>
+    <%= form_with model: @post do |f| %>
+        <div>
+            <p class="post-update-text-1">Price: </p>
+            <%= f.text_area :price, required: true %>
+        </div><br>
+        <div>
+            <p class="post-update-text-2">Title:</p>
+            <%= f.text_area :title, required: true %>
+        </div><br>
+        <div>
+            <p class="post-update-text-3">Description: </p>
+            <%= f.text_area :description, required: true %>
+        </div>
+        <br>
+        <%= f.submit %>
+    <% end %>
+</div>
